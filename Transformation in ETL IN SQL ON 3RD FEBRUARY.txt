@@ -1,0 +1,15 @@
+-- Question 5 : Convert the following inconsistent “Gender” entries into a standardized format (“Male”, “Female”):["M", "male", "F", "Female", "MALE", "f"]
+CREATE DATABASE students_data1;
+USE students_data1; 
+CREATE TABLE students ( 
+gender VARCHAR(10) 
+); 
+INSERT INTO students VALUES 
+( 'M'),('male'),('F'),('Female'),('MALE'),('f'); 
+SELECT * FROM students; 
+SELECT 
+CASE 
+WHEN LOWER(gender) IN('m','male') THEN 'Male' 
+WHEN Lower(gender) IN ('f','female') THEN 'Female'
+END AS standardized_gender 
+FROM students;
